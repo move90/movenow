@@ -1,0 +1,45 @@
+<section class="wrap how" id="how" aria-label="How it works">
+  <div class="section-eyebrow reveal">Three steps</div>
+  <h2 class="reveal">Search a movement, build the plan, hand it over. That’s the whole tool.</h2>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-n">01</div>
+      <svg class="step-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <h3>Find the movement</h3>
+      <p>Search a growing library by body area, joint, or name. Clear demos, no scrolling through clutter.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-n">02</div>
+      <svg class="step-ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M17 16l2 2 3-3"/></svg>
+      <h3>Build the plan</h3>
+      <p>Add sets, reps and a short note in a couple of clicks. Reorder, swap, done. You stay in control of every choice.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-n">03</div>
+      <svg class="step-ico" viewBox="0 0 24 24"><path d="M6 9V4h12v5"/><path d="M6 18H4v-5a2 2 0 012-2h12a2 2 0 012 2v5h-2"/><path d="M8 14h8v6H8z"/></svg>
+      <h3>Hand it over</h3>
+      <p>Print a clean sheet or share a link. Your patient leaves with something they can actually follow.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how{padding:72px 0 28px}
+  .section-eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+  .how h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+    font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;max-width:16em;margin-bottom:40px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--sheet);
+    transition:transform .2s ease,box-shadow .2s ease}
+  .step:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .step-n{font-family:'Space Mono',monospace;font-size:13px;color:var(--accent);font-weight:700;margin-bottom:14px}
+  .step-ico{width:34px;height:34px;stroke:var(--ink);stroke-width:1.6;fill:none;
+    stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+  .step h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;margin-bottom:8px}
+  .step p{font-size:14.5px;color:var(--ink-soft)}
+
+  @media(max-width:860px){
+    .steps{grid-template-columns:1fr}
+  }
+</style>

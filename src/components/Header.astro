@@ -1,0 +1,68 @@
+---
+import { site } from '../config';
+---
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">
+      <span class="wordmark">{site.wordmark.pre}<b>{site.wordmark.accent}</b></span>
+      <span class="byline">by <a href={site.companyUrl} target="_blank" rel="noopener">{site.companyName}</a></span>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <!-- icon swapped by JS -->
+        <svg id="themeIcon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+      </button>
+      <a href={site.appUrl} class="nav-cta">Open the tool</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  header{padding:26px 0 0}
+  .bar{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:baseline;gap:10px}
+  .byline{font-size:12.5px;color:var(--ink-soft);font-weight:500}
+  .byline a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+  .nav-cta{
+    font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;
+    padding:9px 16px;border:1px solid var(--ink);border-radius:999px;
+    transition:background .18s ease,color .18s ease;
+  }
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+  .theme-toggle{
+    background:none;border:1px solid var(--line);border-radius:999px;
+    padding:8px 10px;cursor:pointer;color:var(--ink-soft);
+    display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;
+    transition:border-color .18s ease,color .18s ease,background .18s ease;
+    font-family:inherit;
+  }
+  .theme-toggle:hover{border-color:var(--ink-soft);color:var(--ink)}
+  .theme-toggle svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;
+    fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .nav-right{display:flex;align-items:center;gap:10px}
+</style>
+
+<script>
+  const SUN =
+    '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+  const MOON = '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>';
+  const html = document.documentElement;
+  const btn = document.getElementById('themeToggle')!;
+  const icon = document.getElementById('themeIcon')!;
+
+  // Initial theme is applied before paint by the inline script in <head>;
+  // here we only sync the icon and handle clicks.
+  let dark = html.classList.contains('dark');
+  function apply(d: boolean) {
+    html.classList.toggle('dark', d);
+    icon.innerHTML = d ? SUN : MOON;
+    btn.setAttribute('aria-label', d ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  apply(dark);
+  btn.addEventListener('click', () => {
+    dark = !dark;
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    apply(dark);
+  });
+</script>

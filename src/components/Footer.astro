@@ -1,0 +1,29 @@
+---
+import { site } from '../config';
+---
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-brand">
+        <span class="wordmark">{site.wordmark.pre}<b>{site.wordmark.accent}</b></span>
+        <p>by {site.companyName} · Berlin</p>
+      </div>
+      <p class="legal">
+        {site.productName} is a tool for creating and printing exercise plans. It is not a medical device and does not
+        provide medical advice, diagnosis, or treatment recommendations. Clinical decisions remain with the
+        treating physiotherapist.
+      </p>
+      <a class="foot-mail" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer{padding:40px 0 56px;margin-top:40px;border-top:1px solid var(--line)}
+  .foot-row{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
+  .foot-brand .wordmark{font-size:20px}
+  .foot-brand p{font-size:13px;color:var(--ink-soft);margin-top:8px}
+  .legal{max-width:30em;font-size:12px;color:var(--ink-soft);line-height:1.6}
+  .foot-mail{font-size:14px;color:var(--ink);text-decoration:none;font-weight:600;border-bottom:1px solid var(--accent)}
+</style>

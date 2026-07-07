@@ -1,0 +1,70 @@
+---
+import { site } from '../config';
+import PlanSheet from './PlanSheet.astro';
+---
+
+<section class="wrap hero" aria-label="Introduction">
+  <div class="hero-copy">
+    <span class="eyebrow"><span class="dot"></span>For physiotherapists · Germany</span>
+    <h1>Build and print exercise plans in&nbsp;<span class="mark">under a minute</span>.</h1>
+    <p class="lede">Search a big library of movements, drop them into a clean plan,
+       and hand the sheet to your patient. No setup, no subscription — and it’s <strong style="color:var(--accent-deep);font-weight:600">free</strong>.</p>
+
+    <div class="cta-group">
+      <a href={site.appUrl} class="btn-primary">Open the tool</a>
+      <a href="#how" class="btn-ghost">See how it works</a>
+    </div>
+    <p class="microcopy"><strong>No account needed to start.</strong> &nbsp;No credit card, no subscription — free for physios.</p>
+  </div>
+
+  <PlanSheet />
+</section>
+
+<style>
+  .hero{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+    padding:64px 0 36px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--accent-deep);
+    background:var(--mint);padding:6px 13px;border-radius:999px;margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  h1{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;line-height:1.02;letter-spacing:-.025em;
+    font-size:clamp(38px,5.4vw,62px);color:var(--ink);
+  }
+  /* highlighter swipe, like a physio marking paper */
+  .mark{position:relative;white-space:nowrap}
+  .mark::after{
+    content:"";position:absolute;left:-4px;right:-4px;bottom:.08em;height:.42em;
+    background:var(--mint);z-index:-1;transform:rotate(-1.2deg);border-radius:3px;
+  }
+  .lede{
+    font-size:clamp(17px,2.1vw,19.5px);color:var(--ink-soft);
+    margin:22px 0 30px;max-width:30em;
+  }
+
+  .cta-group{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn-primary{
+    font-family:inherit;font-size:15px;font-weight:600;color:#fff;text-decoration:none;
+    padding:14px 26px;border-radius:12px;background:var(--accent);
+    transition:background .18s ease,transform .12s ease;
+  }
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-ghost{
+    font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;
+    padding:14px 22px;border-radius:12px;border:1px solid var(--line);
+    transition:border-color .18s ease,background .18s ease;
+  }
+  .btn-ghost:hover{border-color:var(--ink);background:var(--paper-2)}
+  .microcopy{font-size:13px;color:var(--ink-soft);margin-top:16px}
+  .microcopy strong{color:var(--ink);font-weight:600}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:40px;padding:44px 0 24px}
+  }
+</style>

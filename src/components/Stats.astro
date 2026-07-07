@@ -1,0 +1,30 @@
+---
+import { site } from '../config';
+---
+
+<section class="wrap" aria-label="Key numbers">
+  <div class="stats reveal">
+    <div class="stat"><div class="stat-n">{site.exerciseCount}</div><div class="stat-l">exercises in the library</div></div>
+    <div class="stat"><div class="stat-n">~1 min</div><div class="stat-l">to build a full plan</div></div>
+    <div class="stat"><div class="stat-n">€0</div><div class="stat-l">free, and staying that way</div></div>
+  </div>
+</section>
+
+<style>
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--sheet);
+    margin:30px 0 4px;overflow:hidden;
+  }
+  .stat{padding:26px 22px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat-n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(28px,4vw,38px);letter-spacing:-.02em;color:var(--ink);line-height:1}
+  .stat-l{font-size:13px;color:var(--ink-soft);margin-top:8px}
+
+  @media(max-width:860px){
+    .stats{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--line)}
+    .stat:last-child{border-bottom:none}
+  }
+</style>

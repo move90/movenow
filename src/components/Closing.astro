@@ -1,0 +1,33 @@
+---
+import { site } from '../config';
+---
+
+<section class="wrap" id="get" aria-label="Get started">
+  <div class="closing reveal">
+    <h2>Free for every physio.</h2>
+    <p>Open {site.productName}, search a movement, and print your first plan in a minute.</p>
+    <a href={site.appUrl} class="cta-big">Open the tool</a>
+    <p class="trust">Built by people who went through rehab themselves.</p>
+  </div>
+</section>
+
+<style>
+  .closing{margin:64px 0 0;padding:48px 40px;border-radius:24px;
+    background:var(--closing-bg);color:var(--closing-text);text-align:center;position:relative;overflow:hidden}
+  .closing::after{content:"";position:absolute;inset:0;opacity:.5;
+    background:radial-gradient(circle at 80% -20%,var(--closing-glow),transparent 55%)}
+  .closing > *{position:relative;z-index:1}
+  .closing h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(26px,3.6vw,38px);letter-spacing:-.02em;margin-bottom:12px}
+  .closing p{color:var(--closing-sub);font-size:16px;margin-bottom:26px}
+  .closing .cta-big{display:inline-block;font-weight:600;font-size:16px;color:var(--closing-btn-text);
+    background:var(--accent);text-decoration:none;padding:15px 30px;border-radius:999px;
+    transition:background .18s ease,transform .12s ease}
+  .closing .cta-big:hover{background:var(--sheet)}
+  .closing .cta-big:active{transform:translateY(1px)}
+  .trust{margin-top:18px;font-size:13.5px;color:var(--ink-soft)}
+
+  @media(max-width:860px){
+    .closing{padding:40px 24px}
+  }
+</style>
